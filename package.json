@@ -14,7 +14,7 @@
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
     "format": "prettier --write src/",
-    "deploy": "vite build && gh-pages -d dist -v .*/**/*"
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
     "vue": "^3.5.18"
