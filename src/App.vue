@@ -1,22 +1,41 @@
 <script setup>
 import { ref } from 'vue'
-
 const num = ref(1)
-console.log(num.value)
-/*setInterval(() => {
-num.value++
-}, 500);*/
 
-function clickMe() {
-    num.value++
+const inputValue = ref(3)
+function showValue() {
+    alert(`你輸入的是：${inputValue.value}`)
 }
+
+const students = ref([
+    { id: 's001', name: '洧杰', score: 90 },
+    { id: 's002', name: '小花', score: 85 },
+    { id: 's003', name: '阿明', score: 78 },
+    { id: 's004', name: '佩佩', score: 92 },
+])
 </script>
 
 <template>
-    <div>
-        {{ num }}
-        <button type="button" v-on:click="clickMe">點擊</button>
-    </div>
+    <label for="">{{ num }}</label>
+    <input type="text" v-model="num" />
+
+    <input v-bind:value="inputValue" type="text" />
+    <p>{{ inputValue }}</p>
+    <p>{{ inputValue }}</p>
+    <p>{{ inputValue }}</p>
+    <p>{{ inputValue }}</p>
+    <p>{{ inputValue }}</p>
+    <button v-on:click="showValue">顯示輸入值</button>
+    <p>目前輸入：{{ inputValue }}</p>
+
+    <h2 class="text-xl font-bold mb-4">👨‍🎓 學生名單</h2>
+    <ul>
+        <li v-for="student in students" :key="student.id" class="mb-2 p-2 border rounded">
+            <p>🆔 學號：{{ student.id }}</p>
+            <p>📛 姓名：{{ student.name }}</p>
+            <p>📈 分數：{{ student.score }}</p>
+        </li>
+    </ul>
 </template>
 
 <style scoped></style>
